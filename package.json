@@ -25,7 +25,10 @@
   "homepage": "https://github.com/TL-Developer/infrabook#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "config": "^1.24.0",
+    "consign": "^0.1.2",
     "express": "^4.14.0",
+    "helmet": "^3.3.0",
     "method-override": "^2.3.7",
     "mongoose": "^4.7.6"
   },
