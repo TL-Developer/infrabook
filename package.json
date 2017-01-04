@@ -1,0 +1,38 @@
+{
+  "name": "infrabook",
+  "version": "0.0.1",
+  "description": "Real-Time Social Networking",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && node ./**/*.js",
+    "start": "node server",
+    "test-integration": "mocha --opts test/integration/mocha.opts test/integration/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TL-Developer/infrabook.git"
+  },
+  "keywords": [
+    "real-time",
+    "infrabook",
+    "social-media"
+  ],
+  "author": "Tiago Lima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TL-Developer/infrabook/issues"
+  },
+  "homepage": "https://github.com/TL-Developer/infrabook#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.7.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "standard": "^8.6.0",
+    "supertest": "^2.0.1"
+  }
+}
