@@ -1,38 +1,39 @@
-var users = [
-  {
+var mongoose = require('mongoose');
+
+module.exports = () => {
+
+  var schema = mongoose.Schema({
     profile: {
-      name: 'tiago.jlima',
-      displayName: 'Tiago Lima',
-      photoProfile: 'public/images/users/tiago-lima/perfil.png',
+      name: {type: String},
+      displayName: {type: String},
+      photoProfile: {type: String},
       phones: [
         {
-          tel: ['22-1111-1111', '22-1111-1111'],
-          cel: ['22-1111-1111', '22-1111-1111']
+          tel: [{type: String}],
+          cel: [{type: String}]
         }
       ],
       address: {
-        lagradouro: 'Borboleta amarela, 57',
-        cep: '08081570',
-        neighborhood: 'Jd. helena',
-        city: 'São Paulo'
+        lagradouro: {type: String},
+        cep: {type: String},
+        neighborhood: {type: String},
+        city: {type: String}
       },
       album: [
         {
-          title: 'titulo da imagem',
-          image: 'public/images/users/tiago-lima/album/1.png'
+          title: {type: String},
+          image: {type: String}
         }
       ]
     },
     feeds: [
       {
-        description: 'Mensagem do post aqui',
-        image: 'public/images/users/tiago-lima/feeds/1.png'
+        description: {type: String},
+        image: {type: String}
       }
     ]
-  }
-];
+  });
 
+  return mongoose.model('Users', schema);
 
-module.exports = (app) => {
-  return users;
 };

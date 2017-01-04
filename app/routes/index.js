@@ -1,5 +1,3 @@
-
-
 module.exports = (app) => {
 
   var controller = app.controllers.feeds;
@@ -12,6 +10,5 @@ module.exports = (app) => {
 
   app.route('/feeds')
     .get(controller.getAllFeeds);
-
 
 };

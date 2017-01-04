@@ -1,4 +1,3 @@
-
 module.exports = (app) => {
 
   var ModalFeeds = app.models.feeds
@@ -6,17 +5,23 @@ module.exports = (app) => {
 
   // GET TODOS FEEDS DE TODOS UM USUARIOS
   controller.getAllFeeds = (req, res) => {
-    res.status(200).json(ModalFeeds[0].feeds);
+    ModalFeeds.find({}).exec().then((allFeeds) => {
+      res.status(200).json(allFeeds);
+    });
   };
 
   // GET TODOS USUARIOS
   controller.getAllUsers = (req, res) => {
-    res.status(200).json(ModalFeeds[0]);
+    ModalFeeds.find({}).exec().then((allUsers) => {
+      res.status(200).json(allUsers);
+    });
   };
 
   // GET TODOS FEEDS DE UM USUARIO
   controller.getUserFeed = (req, res) => {
-    res.status(200).json(ModalFeeds[0].feeds);
+    ModalFeeds.find({}).exec().then((userFeed) => {
+      res.status(200).json(userFeed);
+    });
   };
 
   return controller;
