@@ -1,39 +1,33 @@
 var mongoose = require('mongoose');
+var Schema =  mongoose.Schema;
 
 module.exports = () => {
 
-  var schema = mongoose.Schema({
-    profile: {
-      name: {type: String},
-      displayName: {type: String},
-      photoProfile: {type: String},
-      phones: [
-        {
-          tel: [{type: String}],
-          cel: [{type: String}]
-        }
-      ],
-      address: {
-        lagradouro: {type: String},
-        cep: {type: String},
-        neighborhood: {type: String},
-        city: {type: String}
-      },
-      album: [
-        {
-          title: {type: String},
-          image: {type: String}
-        }
-      ]
-    },
-    feeds: [
+  var feedsSchema =  new Schema({
+    ownerUser: {type: String},
+    title: {type: String},
+    message: {type: String},
+    images: [
+      {type: String}
+    ],
+    likes: {type: Number},
+    whoLikes: [{type: String}],
+    comments: [
       {
-        description: {type: String},
-        image: {type: String}
+        userCommented: {type: String},
+        message: {type: String},
+        likes: {type: Number},
+        created: {
+          type: Date,
+          default: Date.now
+        }
       }
-    ]
+    ],
+    created: {
+      type: Date,
+      default: Date.now
+    }
   });
 
-  return mongoose.model('Users', schema);
-
+  return mongoose.model('Feeds', feedsSchema);
 };

@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
+var Promise = require('bluebird');
+
+mongoose.Promise = Promise;
 
 module.exports = function(uri){
+
 
   mongoose.connect(uri, {server: {poolSize: 15}});
 

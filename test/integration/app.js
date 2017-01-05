@@ -7,7 +7,6 @@ var supertest = require('supertest')
 
 var request = supertest(app);
 
-
 var users = [
   {
     profile: {
@@ -48,7 +47,7 @@ describe('Routes', () => {
 
     it('shold return a list of users', (done) => {
       request.get('/users').expect(200).end((err, res) => {
-        expect(res.body).to.be.eql(users[0]);
+        expect(res.body).to.be.instanceof(Array);
         done(err);
       });
     });

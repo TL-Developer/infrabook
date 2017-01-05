@@ -5,10 +5,10 @@ module.exports = (app) => {
   app.route('/users')
     .get(controller.getAllUsers);
 
-  app.route('/users/feeds')
-    .get(controller.getUserFeed);
-
   app.route('/feeds')
     .get(controller.getAllFeeds);
+
+  app.route('/albuns')
+    .get(controller.getAllAlbuns);
 
 };
