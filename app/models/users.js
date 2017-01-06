@@ -19,6 +19,8 @@ module.exports = () => {
         }
       ]
     },
+    albuns: [{ type: Schema.Types.ObjectId, ref: 'Albuns' }],
+    feeds: [{ type: Schema.Types.ObjectId, ref: 'Feeds' }],
     created: {
       type: Date,
       default: Date.now

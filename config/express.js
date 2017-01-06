@@ -5,7 +5,9 @@ var express        = require('express')
   , bodyParser     = require('body-parser')
   , methodOverride = require('method-override')
   , helmet         = require('helmet')
-  , config         = require('config');
+  , config         = require('config')
+  , passport       = require('passport')
+  , session        = require('express-session');
 
 module.exports = () => {
   var app = express();
@@ -31,6 +33,11 @@ module.exports = () => {
   app.use(helmet.ieNoOpen());
 
   app.use(express.static('./public'));
+
+  require('./passport')(passport);
+  app.use(session({secret: 'anystringoftext', saveUninitialized: true, resave: true}));
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   consign({cwd: 'app', logger: console})
     .include('models')

@@ -4,5 +4,8 @@
   },
   "bodyParser": {
     "extended": true
-  }
+  },
+  "GOOGLE_CLIENT_ID": "386979630805-0dn6q99co4q9uobe98homjvqnoul1bes.apps.googleusercontent.com",
+  "GOOGLE_CLIENT_SECRET": "P8iRZ6tcuI55E2eg5h9H2HzL",
+  "GOOGLE_CALLBACK_URL": "http://localhost:8080/feeds"
 }
