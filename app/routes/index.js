@@ -2,7 +2,7 @@ var passport = require('passport');
 
 module.exports = (app) => {
 
-  function ensureAuthenticated(req, res, next) {
+  function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
     res.redirect('/');
   }
@@ -13,7 +13,7 @@ module.exports = (app) => {
     .get(controller.getAllUsers);
 
   app.route('/feeds')
-    .get(controller.getAllFeeds);
+    .get(isLoggedIn, controller.getAllFeeds);
 
   app.route('/albuns')
     .get(controller.getAllAlbuns);
@@ -24,9 +24,15 @@ module.exports = (app) => {
   ));
 
   app.get('/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/', successRedirect: '/feedsl' }),
+    passport.authenticate('google', { failureRedirect: '/', successRedirect: '/feeds' }),
     function(req, res) {
-      res.redirect('/account');
+      res.redirect('/');
     });
+
+  // route for logging out
+  app.get('/logout', function(req, res) {
+      req.logout();
+      res.redirect('/feeds');
+  });
 
 };

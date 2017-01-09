@@ -34,7 +34,7 @@ module.exports = () => {
 
   app.use(express.static('./public'));
 
-  require('./passport')(passport);
+
   app.use(session({secret: 'anystringoftext', saveUninitialized: true, resave: true}));
   app.use(passport.initialize());
   app.use(passport.session());
@@ -44,6 +44,8 @@ module.exports = () => {
     .then('controllers')
     .then('routes')
     .into(app);
+
+  require('./passport')(passport, app);
 
   return app;
 };
