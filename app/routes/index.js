@@ -4,7 +4,7 @@ module.exports = (app) => {
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
-    res.redirect('/');
+    res.redirect('/#!/login');
   }
 
   var controller = app.controllers.feeds;
@@ -24,15 +24,17 @@ module.exports = (app) => {
   ));
 
   app.get('/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/', successRedirect: '/feeds' }),
+    passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/#!/feeds' }),
     function(req, res) {
-      res.redirect('/');
+      res.redirect('/login');
     });
 
   // route for logging out
   app.get('/logout', function(req, res) {
-      req.logout();
-      res.redirect('/feeds');
+      req.session.destroy(function(e){
+          req.logout();
+          res.redirect('/');
+      });
   });
 
 };

@@ -5,7 +5,6 @@ module.exports = (app) => {
     , AlbunsModel = app.models.albuns
     , FeedsModel = app.models.feeds;
 
-
   // CADASTRANDO MOCKS
   function cadastrarMocks(){
 
@@ -86,7 +85,7 @@ module.exports = (app) => {
   // GET TODOS FEEDS DE TODOS UM USUARIOS
   controller.getAllFeeds = (req, res) => {
     FeedsModel.find().then((allFeeds) => {
-      res.status(200).json({feeds: allFeeds, user: req.user});
+      res.status(200).json(allFeeds);
     });
   };
 

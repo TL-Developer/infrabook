@@ -1,10 +1,18 @@
-angular.module('infrabook', ['ui.router','ngMaterial']).config(function($stateProvider, $urlRouterProvider, $locationProvider){
+angular.module('infrabook', ['ngResource','ui.router','ngMaterial','picardy.fontawesome']).config(function($stateProvider, $urlRouterProvider, $locationProvider){
+
+  // $locationProvider.html5Mode(true).hashPrefix('!');
 
   $stateProvider
     .state('login', {
-      url: '/',
+      url: '/login',
       templateUrl: 'partials/login.html',
       controller: 'LoginController'
+    })
+
+    .state('feeds', {
+      url: '/feeds',
+      templateUrl: 'partials/feeds.html',
+      controller: 'FeedsController'
     })
 
     // .state('anunciantes', {
@@ -19,5 +27,5 @@ angular.module('infrabook', ['ui.router','ngMaterial']).config(function($statePr
     //   controller: 'AdvertiserController'
     // });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 });

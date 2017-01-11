@@ -1,30 +1,86 @@
 <div layout="row">
-    <div flex="40" class="login">
+  <div flex="40" class="login">
 
-      <div class="logo">
-        <img src="img/logo_infra.png" alt="" style="width: 50%;">
+    <div class="logo">
+      <img src="img/logo_infra.png" alt="" style="width: 50%;">
+    </div>
+
+    <md-toolbar>
+      <div class="panel">
+        <h5 class="text-center">Entrar no Infrabook</h5>
       </div>
+    </md-toolbar>
 
-      <md-toolbar>
-        <div class="panel">
-          <h5 class="text-center">Entrar no InfraPoker</h5>
+    <form ng-submit="login(this)">
+      <md-content>
+          <md-input-container>
+            <label>Username</label>
+            <input ng-model="signup.username" type="text">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Password</label>
+            <input ng-model="signup.password" type="password">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Display Name</label>
+            <input ng-model="signup.displayname" type="text">
+          </md-input-container>
+
+          <md-input-container>
+            <label>E-mail</label>
+            <input ng-model="signup.email" type="text">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Photo</label>
+            <input ng-model="signup.photo" type="file">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Adress</label>
+            <input ng-model="signup.adress.lagrodouro" type="text">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Cep</label>
+            <input ng-model="signup.adress.cep" type="text">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Neighborhood</label>
+            <input ng-model="signup.adress.neighborhood" type="text">
+          </md-input-container>
+
+          <md-input-container>
+            <label>City</label>
+            <input ng-model="signup.adress.city" type="text">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Tel</label>
+            <input ng-model="signup.adress.phones.tel" type="text">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Cel</label>
+            <input ng-model="signup.adress.phones.cel" type="text">
+          </md-input-container>
+      </md-content>
+
+      <section layout="column" layout-align="center center">
+        <div layout="row" style="width: 100%">
+        <md-button type="submit" class="md-raised md-primary md-block" flex>Cadastrar <fa name="spinner" spin size="1" ng-show="loading"></fa></md-button>
         </div>
-      </md-toolbar>
+      </section>
 
-      <form ng-submit="login(this)">
-        <md-content>
-            <md-input-container>
-              <label>Username</label>
-              <input ng-model="name" type="text">
-            </md-input-container>
-        </md-content>
+      <section>
+        <div class="row" style="width: 100%;">
+          <a href="/auth/google">Entrar com <fa name="google" size="2"></fa></a>
+        </div>
+      </section>
 
-        <section layout="column" layout-align="center center">
-          <div layout="row" style="width: 100%">
-          <md-button type="submit" class="md-raised md-primary md-block" flex>Entrar</md-button>
-          </div>
-        </section>
-
-      </form>
+    </form>
   </div>
 </div>
