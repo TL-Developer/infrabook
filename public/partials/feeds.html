@@ -1,7 +1,56 @@
-<div layout="row">
-  <div flex="40">
+<div layout="row header">
+  <div flex="100" layout="column" class="boxWithHeight info-user" layout-padding>
+    <section flex="50" class="">
+    asdfasdf
+      <img src="img/logo_infra.png" alt="">
+    </section>
 
-  feeds
-
+    <section flex="10">
+      Olá: {{user.name}} <a href="/logout">sair</a>
+    </section>
   </div>
+</div>
+
+<div layout="row">
+
+  <div flex="10" layout="column" class="boxWithHeight left-painel" layout-padding>
+    <section flex="40">PAINEL</section>
+  </div>
+
+  <div flex="70" layout="column" class="boxWithHeight" layout-padding>
+
+    <div class="row" ng-repeat="feed in feeds">
+      <section flex="100">
+
+        <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Card with image</span>
+              <span class="md-subhead">Extra Large</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content layout="row" layout-align="space-between">
+            <div class="md-media-xl card-media"><img src="http://lorempixel.com/100/100" alt=""></div>
+
+            <md-card-actions layout="column">
+              <md-button class="md-icon-button" aria-label="Favorite">
+                <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
+              </md-button>
+              <md-button class="md-icon-button" aria-label="Settings">
+                <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+              </md-button>
+              <md-button class="md-icon-button" aria-label="Share">
+                <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
+              </md-button>
+            </md-card-actions>
+          </md-card-content>
+        </md-card>
+      </section>
+    </div>
+  </div>
+
+  <div flex="20" layout="column" class="boxWithHeight rocket-chat" layout-padding>
+    <section flex="100">CHAT DO ROCKET.CHAT</section>
+  </div>
+
 </div>

@@ -85,14 +85,19 @@ module.exports = (app) => {
   // GET TODOS FEEDS DE TODOS UM USUARIOS
   controller.getAllFeeds = (req, res) => {
     FeedsModel.find().then((allFeeds) => {
-      res.status(200).json(allFeeds);
+      res.status(200).json([
+        {
+          user: req.user,
+          feeds: allFeeds
+        }
+      ]);
     });
   };
 
   // GET TODOS ALBUNS DE UM USUARIO
   controller.getAllAlbuns = (req, res) => {
     AlbunsModel.findOne().then((allAlbuns) => {
-      res.status(200).json(allAlbuns);
+      res.status(200).json({allAlbuns});
     });
   };
 

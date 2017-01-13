@@ -2,3 +2,85 @@
   width: 100%;
   height: 100%;
 }
+
+$amarelo: #fecd08;
+$verde: #28b156;
+$roxo: #704097;
+$vermelho: #eb2432;
+$azul1: #4b85c1;
+$azul2: #36c6f4;
+$azul3: #3f51b5;
+
+.login {
+  margin: 0 auto;
+
+  .logo {
+    text-align: center;
+    margin: 5% 0;
+  }
+
+  md-input-container {
+    width: 97%;
+  }
+
+  .external-login {
+    text-align: center;
+
+    ul {
+      li {
+        float: left;
+        margin-left: 7%;
+      }
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+a {
+  color: inherit;
+}
+
+.text-right {
+  text-align: right;
+  margin-right: 20px;
+  float: right;
+}
+
+.text-left {
+  float: left;
+  text-align: left;
+  margin-left: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+
+.header {
+  padding: 2%;
+  color: #fff;
+  background: #3f51b5;
+
+  .logo {
+    width: 6%;
+    overflow: hidden;
+
+    img {
+      width: 250px;
+    }
+  }
+}
+
+.left-painel {
+  background: $azul1;
+  color: #fff;
+}
+
+.rocket-chat {
+  background: $azul2;
+  color: #fff;
+}

@@ -1,7 +1,22 @@
-angular.module('infrabook').controller('FeedsController', ['$scope','ApiServices', function($scope, ApiServices){
+angular.module('infrabook').controller('FeedsController', ['$scope','ApiServices','$state', function($scope, ApiServices, $state){
 
-  ApiServices.feeds.getAll().query(function(feeds){
-    console.log(feeds);
+  $scope.user = [];
+  $scope.feeds = [];
+
+  // PUXANDO TODOS FEEDS NA API
+  ApiServices.feeds.getAll().query().$promise.then(function(data) {
+    // ENVIANDO USUARIO AUTENTICADO NO GOOGLE
+    if(data[0].user.google){
+      $scope.user = data[0].user.google;
+    }
+
+    // ENVIANDO TODOS FEEDS CADASTRADOS NA API
+    $scope.feeds = data[0].feeds;
+
+    console.log(data);
+  }, function(err) {
+    console.log('Não foi possível trazer os feeds ' + err);
+    $state.go('login');
   });
 
 }]);

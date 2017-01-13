@@ -22,51 +22,6 @@
             <label>Password</label>
             <input ng-model="signup.password" type="password">
           </md-input-container>
-
-          <md-input-container>
-            <label>Display Name</label>
-            <input ng-model="signup.displayname" type="text">
-          </md-input-container>
-
-          <md-input-container>
-            <label>E-mail</label>
-            <input ng-model="signup.email" type="text">
-          </md-input-container>
-
-          <md-input-container>
-            <label>Photo</label>
-            <input ng-model="signup.photo" type="file">
-          </md-input-container>
-
-          <md-input-container>
-            <label>Adress</label>
-            <input ng-model="signup.adress.lagrodouro" type="text">
-          </md-input-container>
-
-          <md-input-container>
-            <label>Cep</label>
-            <input ng-model="signup.adress.cep" type="text">
-          </md-input-container>
-
-          <md-input-container>
-            <label>Neighborhood</label>
-            <input ng-model="signup.adress.neighborhood" type="text">
-          </md-input-container>
-
-          <md-input-container>
-            <label>City</label>
-            <input ng-model="signup.adress.city" type="text">
-          </md-input-container>
-
-          <md-input-container>
-            <label>Tel</label>
-            <input ng-model="signup.adress.phones.tel" type="text">
-          </md-input-container>
-
-          <md-input-container>
-            <label>Cel</label>
-            <input ng-model="signup.adress.phones.cel" type="text">
-          </md-input-container>
       </md-content>
 
       <section layout="column" layout-align="center center">
@@ -75,9 +30,34 @@
         </div>
       </section>
 
-      <section>
+      <section class="external-login">
         <div class="row" style="width: 100%;">
-          <a href="/auth/google">Entrar com <fa name="google" size="2"></fa></a>
+          Entre com: <br>
+          <ul>
+            <li>
+              <a href="/auth/google">
+                <fa name="fa fa-google-plus-square" size="4" style="color: #dc4a38;"></fa>
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <fa name="fa fa-facebook-square" size="4" style="color: #3b5998;"></fa>
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <fa name="fa fa-twitter-square" size="4" style="color: #2daae1;"></fa>
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                <fa name="fa fa-github-square" size="4"></fa>
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
 
