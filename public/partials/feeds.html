@@ -18,18 +18,19 @@
 
   <div flex="70" layout="column" class="boxWithHeight" layout-padding>
 
-    <div class="row" ng-repeat="feed in feeds">
+    <div class="row feeds" ng-repeat="feed in feeds">
       <section flex="100">
 
         <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
           <md-card-title>
             <md-card-title-text>
-              <span class="md-headline">Card with image</span>
-              <span class="md-subhead">Extra Large</span>
+              <span class="md-subhead">{{feed.ownerUser}} - {{feed.created}}</span>
+              <span class="md-headline">{{feed.title}}</span>
+              <span class="md-subhead">{{feed.message}}</span>
             </md-card-title-text>
           </md-card-title>
           <md-card-content layout="row" layout-align="space-between">
-            <div class="md-media-xl card-media"><img src="http://lorempixel.com/100/100" alt=""></div>
+            <div class="md-media-xl card-media"><img src="http://lorempixel.com/615/240" alt=""></div>
 
             <md-card-actions layout="column">
               <md-button class="md-icon-button" aria-label="Favorite">

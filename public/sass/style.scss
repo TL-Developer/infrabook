@@ -84,3 +84,15 @@ ul {
   background: $azul2;
   color: #fff;
 }
+
+
+.feeds {
+  .card-media {
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
