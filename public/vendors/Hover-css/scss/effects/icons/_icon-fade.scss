@@ -1,0 +1,26 @@
+/**
+ * icon-fade
+ */
+@mixin icon-fade {
+    @include hacks();
+    position: relative;
+    padding-right: 2.4em!important;
+    overflow: hidden;
+    &:before {
+        content: "\f00c";
+        position: absolute;
+        right:1em;
+        padding: 0 1px;
+        font-family: FontAwesome;
+        @include prefixed(transition-duration, $mediumDuration);
+		@include prefixed(transition-property, color);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        &:before {
+            color: rgb(2, 140, 20);
+        }
+    }
+}

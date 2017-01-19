@@ -1,0 +1,26 @@
+/**
+ * trim
+ */
+@mixin trim {
+    @include hacks();
+    position: relative;
+
+    &:before{
+        content: "";
+        position: absolute;
+        opacity: 0;
+        border: white solid $innerBorderWidth;
+        top:$innerBorderWidth;
+        bottom:$innerBorderWidth;
+        left:$innerBorderWidth;
+        right:$innerBorderWidth;
+        @include prefixed(transition-duration,$mediumDuration);
+        @include prefixed(transition-property,opacity);
+    }
+
+    &:hover:before,
+	&:focus:before,
+	&:active:before {
+		opacity: 1;
+	}
+}

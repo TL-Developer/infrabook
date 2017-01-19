@@ -3,6 +3,9 @@ angular.module('infrabook').controller('FeedsController', ['$scope','ApiServices
   $scope.user = [];
   $scope.feeds = [];
 
+  $scope.message = "Animals: :dog: :cat: :snake: People: :smile: :confused: :angry: Places: :house: :school: :hotel: :poop:";
+  $scope.messageWithAliases = "Emoji with aliases: :) <3 +1";
+
   // PUXANDO TODOS FEEDS NA API
   ApiServices.feeds.getAll().query().$promise.then(function(data) {
     // ENVIANDO USUARIO AUTENTICADO NO GOOGLE

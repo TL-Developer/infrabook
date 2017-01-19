@@ -1,6 +1,10 @@
-angular.module('infrabook', ['ngResource','ui.router','ngMaterial','picardy.fontawesome']).config(function($stateProvider, $urlRouterProvider, $locationProvider){
+angular.module('infrabook', ['ngResource','ui.router','ngMaterial','picardy.fontawesome','ngSanitize','dbaq.emoji']).config(function($stateProvider, $urlRouterProvider, $locationProvider, emojiConfigProvider){
 
   // $locationProvider.html5Mode(true).hashPrefix('!');
+
+  emojiConfigProvider.addAlias("smile", ":)");
+  emojiConfigProvider.addAlias("heart", "<3");
+  emojiConfigProvider.addAlias("ok_hand", "+1");
 
   $stateProvider
     .state('login', {

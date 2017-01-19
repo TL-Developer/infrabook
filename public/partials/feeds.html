@@ -18,9 +18,48 @@
 
   <div flex="70" layout="column" class="boxWithHeight" layout-padding>
 
-    <div class="row feeds" ng-repeat="feed in feeds">
-      <section flex="100">
+    <div class="row" style="border: 1px solid #ccc;">
+      <section flex="100" class="writing-feed">
+        <form ng-submit="">
+          <md-content style="width: 100%;">
+              <md-input-container flex="100" style="width: 10%;">
+                <img src="http://lorempixel.com/70/70" alt="">
+              </md-input-container>
 
+              <md-input-container flex="100" style="width: 70%;">
+                <label>O que vc está fazendo agora?</label>
+                <textarea rows="2" style="width: 100%;" ng-model="newffeed"></textarea>
+                <ul>
+                  <li ng-bind-html="newffeed | emoji"></li>
+                  <li> <a href="http://www.webpagefx.com/tools/emoji-cheat-sheet/" target="blank">Emoji cheat sheet</a></li>
+                </ul>
+              </md-input-container>
+          </md-content>
+
+          <section class="external-login" style="width: 100%;">
+            <div class="row" style="width: 100%;">
+              <ul style="width: 100%; margin: 0; padding: 0;">
+                <li style="float: left; padding: 10px;">
+                  <a href="#" class="hvr-bob">
+                    <fa name="fa fa-picture-o" size="2"></fa>
+                  </a>
+                </li>
+
+                <li style="float: left; padding: 10px;">
+                  <a href="#" class="hvr-bob">
+                    <fa name="fa fa-video-camera" size="2"></fa>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </form>
+      </section>
+    </div>
+
+    <div class="row feeds" ng-repeat="feed in feeds">
+
+      <section flex="100">
         <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
           <md-card-title>
             <md-card-title-text>

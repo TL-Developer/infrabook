@@ -1,0 +1,33 @@
+$includeClasses: true;
+$nameSpace: hvr;
+
+$mediumDuration: .3s!default;
+$slowDuration: .5s!default;
+$fastDuration: .1s!default;
+$slowestDuration: 1s!default;
+//浏览器
+$webkit:true;
+$moz:fasle;
+$ms:fasle;
+$o:fasle;
+
+//color
+$hoverColor:rgba(30, 26, 233, 0.83);
+$primaryColor:rgb(255, 150, 216);
+$shadowColor: rgba(0, 0, 0, 0.75);
+
+// Curl colors
+$revealAreaColor: white;
+$curlLineColor: #aaa;
+$curlTransitionColor: #ccc;
+$curlLastColor: white;
+
+//width
+$borderWidth:4px;
+$innerBorderWidth: 4px;
+$outerBorderWidth: 4px;
+$tipWidth: 10px;
+$curlWidth:25px;
+//Height
+$tipHeight: 10px;
+$curlHeight: 25px;
