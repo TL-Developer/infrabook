@@ -12,7 +12,7 @@ var express        = require('express')
 module.exports = () => {
   var app = express();
 
-  app.set('port', process.env.PORT || 8080);
+  app.set('port', process.env.PORT || 3000);
 
   app.set('json spaces', 4);
 
