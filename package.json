@@ -2,7 +2,7 @@
   "name": "infrabook",
   "version": "0.0.1",
   "description": "Real-Time Social Networking",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "standard && node ./**/*.js",
     "start": "node server",
