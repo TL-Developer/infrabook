@@ -4,9 +4,8 @@
   "description": "Real-Time Social Networking",
   "main": "server.js",
   "scripts": {
-    "test": "standard && node ./**/*.js",
-    "start": "node server",
-    "test-integration": "mocha --opts test/integration/mocha.opts test/integration/*.js"
+    "test-integration": "mocha --opts test/integration/mocha.opts test/integration/*.js",
+    "start": "node server"
   },
   "repository": {
     "type": "git",
