@@ -1,4 +1,6 @@
-angular.module('infrabook', ['ngResource','ui.router','ngMaterial','picardy.fontawesome','ngSanitize','dbaq.emoji']).config(function($stateProvider, $urlRouterProvider, $locationProvider, emojiConfigProvider){
+angular.module('infrabook', ['ngResource','ui.router','ngMaterial','picardy.fontawesome','ngSanitize','dbaq.emoji']).config(function($stateProvider, $urlRouterProvider, $locationProvider, emojiConfigProvider, $qProvider){
+
+  $qProvider.errorOnUnhandledRejections(false)
 
   // $locationProvider.html5Mode(true).hashPrefix('!');
 
@@ -17,6 +19,12 @@ angular.module('infrabook', ['ngResource','ui.router','ngMaterial','picardy.font
       url: '/feeds',
       templateUrl: 'partials/feeds.html',
       controller: 'FeedsController'
+    })
+
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'partials/profile.html',
+      controller: 'ProfileController'
     })
 
     // .state('anunciantes', {

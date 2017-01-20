@@ -1,39 +1,47 @@
-<div layout="row header">
-  <div flex="100" layout="column" class="boxWithHeight info-user" layout-padding>
-    <section flex="50">
-      <img src="img/logo_infra.png" alt="" style="width: 10%;">
-    </section>
-
-    <section flex="50">
-      Olá: {{user.name}} <a href="/logout">sair</a>
-    </section>
-  </div>
+<div layout="row" class="loading" ng-hide="loading">
+  <div class="content-loading"><fa name="spinner" ng-hide="loading" spin size="3"></fa></div>
 </div>
 
 <div layout="row">
+  <div flex="100">
+    <div ng-include="'partials/includes/header.html'"></div>
+  </div>
+</div>
 
-  <div flex="10" layout="column" class="boxWithHeight left-painel" layout-padding>
-    <section flex="40">PAINEL</section>
+<div layout="row" ng-show="loading">
+
+  <div flex="20" layout="column" class="boxWithHeight left-painel" layout-padding>
+    <div ng-include="'partials/includes/left_panel.html'"></div>
   </div>
 
-  <div flex="70" layout="column" class="boxWithHeight" layout-padding>
+  <div flex="60" layout="column" class="boxWithHeight" layout-padding>
 
     <div class="row" style="border: 1px solid #ccc;">
       <section flex="100" class="writing-feed">
         <form ng-submit="">
           <md-content style="width: 100%;">
-              <md-input-container flex="100" style="width: 10%;">
+            <div layout="row" layout-xs="column">
+              <div flex="10">
                 <img src="http://lorempixel.com/70/70" alt="">
-              </md-input-container>
+              </div>
 
-              <md-input-container flex="100" style="width: 70%;">
-                <label>O que vc está fazendo agora?</label>
-                <textarea rows="2" style="width: 100%;" ng-model="newffeed"></textarea>
+              <div flex="40">
+                <md-input-container style="width: 100%;">
+                  <label>O que vc está fazendo agora?</label>
+                  <textarea rows="2" style="width: 100%;" ng-model="newffeed"></textarea>
+                </md-input-container>
+              </div>
+
+              <div flex="40">
                 <ul>
                   <li ng-bind-html="newffeed | emoji"></li>
-                  <li> <a href="http://www.webpagefx.com/tools/emoji-cheat-sheet/" target="blank">Emoji cheat sheet</a></li>
+                  <li>
+                    <md-tooltip ng-bind-html="message | emoji"></md-tooltip>
+                    <a href="http://www.webpagefx.com/tools/emoji-cheat-sheet/" target="blank">Emoji cheat sheet</a>
+                  </li>
                 </ul>
-              </md-input-container>
+              </div>
+            </div>
           </md-content>
 
           <section class="external-login" style="width: 100%;">
@@ -58,7 +66,6 @@
     </div>
 
     <div class="row feeds" ng-repeat="feed in feeds">
-
       <section flex="100">
         <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
           <md-card-title>
@@ -69,8 +76,7 @@
             </md-card-title-text>
           </md-card-title>
           <md-card-content layout="row" layout-align="space-between">
-            <div class="md-media-xl card-media"><img src="http://lorempixel.com/615/240" alt=""></div>
-
+            <div class="md-media-xl card-media"><img ng-src="http://lorempixel.com/615/245/" alt=""></div>
             <md-card-actions layout="column">
               <md-button class="md-icon-button" aria-label="Favorite">
                 <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
@@ -82,6 +88,49 @@
                 <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
               </md-button>
             </md-card-actions>
+          </md-card-content>
+
+          <md-card-content layout="row" layout-align="space-between">
+            <ul style="width: 100%; margin: 0; padding: 0;">
+              <li style="float: left; padding: 10px;" class="cursor-pointer hvr-float-shadow">
+                <md-tooltip>
+                  <div ng-repeat="whoLikes in feed.whoLikes">
+                    {{whoLikes}} <br>
+                  </div>
+                </md-tooltip>
+                <fa name="fa fa-thumbs-o-up" size="2"></fa>
+                <small>{{feed.likes}}</small>
+              </li>
+            </ul>
+          </md-card-content>
+
+          <md-card-content class="comentarios">
+            <md-content md-theme="altTheme">
+              <section>
+                <md-subheader class="md-primary">Comentários</md-subheader>
+                <md-list layout-padding>
+                  <md-list-item class="md-3-line" ng-repeat="comments in feed.comments">
+                      <img ng-src="http://lorempixel.com/70/70" class="md-avatar" alt="{{message.userCommented}}">
+                      <div class="md-list-item-text">
+                        <h3 class="userCommented">{{comments.userCommented}}</h3>
+                        <h4>{{comments.message}}</h4>
+                        <p>
+                          {{comments.created}}
+                        </p>
+                        <div class="cursor-pointer hvr-float-shadow">
+                          <md-tooltip>
+                            <div>
+                              Tiago Lima
+                            </div>
+                          </md-tooltip>
+                          <fa name="fa fa-thumbs-o-up" size="1"></fa>
+                          <small>{{comments.likes}}</small>
+                        </div>
+                      </div>
+                  </md-list-item>
+                </md-list>
+              </section>
+            </md-content>
           </md-card-content>
         </md-card>
       </section>

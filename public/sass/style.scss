@@ -61,17 +61,19 @@ ul {
 
 
 .header {
-  padding: 2%;
-  color: #fff;
-  background: #3f51b5;
+  background: #3f51b5 !important;
 
   .logo {
-    width: 6%;
-    overflow: hidden;
 
     img {
-      width: 250px;
+      width: 25%;
     }
+  }
+
+  .menu-user-logged {
+    position: absolute;
+    right: 0;
+    top: 2px;
   }
 }
 
@@ -94,5 +96,47 @@ ul {
       width: 100%;
       height: 100%;
     }
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.comentarios {
+
+  .userCommented {
+    text-transform: capitalize;
+    color: $azul1 !important;
+    font-weight: bold;
+
+    span {
+      color: black;
+      font-weight: normal;
+      text-transform: none;
+    }
+  }
+
+  .md-subhead {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 3px;
+    font-size: 0.8em;
+  }
+}
+
+
+.loading {
+  position: absolute;
+  background: rgba(255,255,255,0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+
+  .content-loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%,-50%, 0);
   }
 }

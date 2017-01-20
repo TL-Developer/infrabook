@@ -1,0 +1,45 @@
+<md-toolbar class="header">
+  <div class="md-toolbar-tools">
+
+    <section flex="20">
+      <h2>Olá {{user.name}}</h2>
+    </section>
+
+    <section flex="60" class="logo" style="text-align: center;">
+      <a ui-sref="feeds">
+        <img src="img/logo_infra.png" alt="">
+      </a>
+    </section>
+
+    <section flex="20" class="menu-user-logged">
+      <md-fab-speed-dial md-direction="left" md-open="demo.isOpen" class="md-scale" ng-mouseenter="demo.isOpen=true" ng-mouseleave="demo.isOpen=false">
+        <md-fab-trigger>
+          <md-button aria-label="menu" class="md-fab md-warn">
+            <md-tooltip md-direction="top" md-visible="tooltipVisible">{{user.name}}</md-tooltip>
+            <img ng-src="http://lorempixel.com/70/70" class="md-avatar" alt="{{message.userCommented}}">
+          </md-button>
+        </md-fab-trigger>
+
+        <md-fab-actions>
+          <div>
+            <a ui-sref="profile">Perfil | </a>
+            <a href="/logout">sair</a>
+          </div>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+    </section>
+  </div>
+</md-toolbar>
+
+<!-- <div layout="row header">
+  <div flex="100" layout="column" class="boxWithHeight info-user" layout-padding>
+    <section flex="50">
+      <img src="img/logo_infra.png" alt="" style="width: 10%;">
+    </section>
+
+    <section flex="50">
+      Olá: {{user.name}} <a href="/logout">sair</a>
+    </section>
+  </div>
+
+</div> -->
