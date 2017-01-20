@@ -1,6 +1,8 @@
 var http = require('http')
   , app  = require('./config/express')();
 
+console.log(process.env.NODE_ENV)
+
 if(process.env.NODE_ENV == 'production'){
   require('./config/database.js')('mongodb://tiago:admin@ds117889.mlab.com:17889/infrabook');
 }else{
