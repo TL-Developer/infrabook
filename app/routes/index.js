@@ -29,6 +29,7 @@ module.exports = (app) => {
   app.get('/auth/google/callback',
     // passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/#!/feeds' }),
     function(req, res) {
+      console.log(passport.authenticate('google'));
       res.send('tese');
       // res.redirect('/login');
     });
