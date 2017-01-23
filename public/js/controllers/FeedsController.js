@@ -8,6 +8,7 @@ angular.module('infrabook').controller('FeedsController', ['$scope','ApiServices
 
   // PUXANDO TODOS FEEDS NA API
   ApiServices.feeds.getAll().query().$promise.then(function(data) {
+    console.log(data)
     // ENVIANDO USUARIO AUTENTICADO NO GOOGLE
     if(data[0].user.google){
       $scope.user = data[0].user.google;
