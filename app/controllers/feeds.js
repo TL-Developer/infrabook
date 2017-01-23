@@ -99,12 +99,12 @@ module.exports = (app) => {
   // GET TODOS FEEDS DE TODOS UM USUARIOS
   controller.getAllFeeds = (req, res) => {
     FeedsModel.find().then((allFeeds) => {
-      res.status(200).json([
+      res.status(200).json(
         {
           user: req.user,
           feeds: allFeeds
         }
-      ]);
+      );
     });
   };
 
