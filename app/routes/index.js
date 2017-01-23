@@ -27,11 +27,9 @@ module.exports = (app) => {
   ));
 
   app.get('/auth/google/callback',
-    // passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/#!/feeds' }),
+    passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/#!/feeds' }),
     function(req, res) {
-      passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/#!/feeds' })
-      console.log(passport.authenticate('google'));
-      // res.redirect('/login');
+      res.redirect('/login');
     });
 
   // route for logging out
