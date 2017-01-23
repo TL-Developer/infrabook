@@ -140,3 +140,12 @@ ul {
     transform: translate3d(-50%,-50%, 0);
   }
 }
+
+.inactive {
+  cursor: default;
+  opacity: 0.3;
+
+  a {
+    cursor: default;
+  }
+}
