@@ -80,7 +80,7 @@ module.exports = (app) => {
       console.log(err);
     });
   };
-  cadastrarMocks();
+  // cadastrarMocks();
 
   // GET TODOS USUARIOS
   controller.getAllUsers = (req, res) => {
