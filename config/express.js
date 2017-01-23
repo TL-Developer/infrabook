@@ -1,7 +1,8 @@
 'use strict';
 
 var express        = require('express')
-  , consign        = require('consign')
+  // , consign        = require('consign')
+  , load           = require('express-load')
   , bodyParser     = require('body-parser')
   , methodOverride = require('method-override')
   , helmet         = require('helmet')
@@ -12,7 +13,7 @@ var express        = require('express')
 module.exports = () => {
   var app = express();
 
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 8080);
 
   app.set('json spaces', 4);
 
@@ -39,14 +40,20 @@ module.exports = () => {
   app.use(passport.initialize());
   app.use(passport.session());
 
+  // TENTANDO ACHAR O MOTIVO DE QUE O HEROKU DA ERRO COM CONSIGN
+  // consign({cwd: 'app', logger: console})
+  //   .include('models')
+  //   .then('controllers')
+  //   .then('routes')
+  //   .into(app);
 
-  consign({cwd: 'app', logger: console})
-    .include('models')
+  load('models', {cwd: 'app'})
     .then('controllers')
     .then('routes')
     .into(app);
 
-  // require('./passport')(passport, app);
+
+  require('./passport')(passport, app);
 
   return app;
 };

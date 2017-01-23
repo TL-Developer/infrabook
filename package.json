@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test-integration": "mocha --opts test/integration/mocha.opts test/integration/*.js",
-    "start": "node server"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "config": "^1.24.0",
     "consign": "^0.1.2",
     "express": "^4.14.0",
+    "express-load": "^1.1.15",
     "express-session": "^1.14.2",
     "helmet": "^3.3.0",
     "method-override": "^2.3.7",
