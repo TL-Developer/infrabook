@@ -73,8 +73,14 @@ module.exports = (app) => {
     }, function(err){
       console.log(err);
     });
+
+    FeedsModel.create(feed).then(function(data){
+      console.log('Cadastrado com sucesso ' + data);
+    }, function(err){
+      console.log(err);
+    });
   };
-  // cadastrarMocks();
+  cadastrarMocks();
 
   // GET TODOS USUARIOS
   controller.getAllUsers = (req, res) => {
