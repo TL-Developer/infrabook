@@ -39,13 +39,14 @@ module.exports = () => {
   app.use(passport.initialize());
   app.use(passport.session());
 
+
   consign({cwd: 'app', logger: console})
     .include('models')
     .then('controllers')
     .then('routes')
     .into(app);
 
-  require('./passport')(passport, app);
+  // require('./passport')(passport, app);
 
   return app;
 };
