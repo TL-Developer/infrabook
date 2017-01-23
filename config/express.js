@@ -1,7 +1,6 @@
 'use strict';
 
 var express        = require('express')
-  // , consign        = require('consign')
   , load           = require('express-load')
   , bodyParser     = require('body-parser')
   , methodOverride = require('method-override')
@@ -39,13 +38,6 @@ module.exports = () => {
   app.use(session({secret: 'anystringoftext', saveUninitialized: true, resave: true}));
   app.use(passport.initialize());
   app.use(passport.session());
-
-  // TENTANDO ACHAR O MOTIVO DE QUE O HEROKU DA ERRO COM CONSIGN
-  // consign({cwd: 'app', logger: console})
-  //   .include('models')
-  //   .then('controllers')
-  //   .then('routes')
-  //   .into(app);
 
   load('models', {cwd: 'app'})
     .then('controllers')

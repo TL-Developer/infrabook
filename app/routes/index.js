@@ -12,6 +12,9 @@ module.exports = (app) => {
   app.route('/users')
     .get(controller.getAllUsers);
 
+  app.route('/usersSign')
+    .get(controller.getAllUsersSign);
+
   app.route('/feeds')
     .get(isLoggedIn, controller.getAllFeeds);
 
@@ -24,9 +27,10 @@ module.exports = (app) => {
   ));
 
   app.get('/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/#!/feeds' }),
+    // passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/#!/feeds' }),
     function(req, res) {
-      res.redirect('/login');
+      res.send('tese');
+      // res.redirect('/login');
     });
 
   // route for logging out

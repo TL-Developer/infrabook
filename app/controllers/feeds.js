@@ -2,6 +2,7 @@ module.exports = (app) => {
 
   var controller = {}
     , UsersModel = app.models.users
+    , UsersSignModel = app.models.userSign
     , AlbunsModel = app.models.albuns
     , FeedsModel = app.models.feeds;
 
@@ -78,6 +79,13 @@ module.exports = (app) => {
   // GET TODOS USUARIOS
   controller.getAllUsers = (req, res) => {
     UsersModel.find().then((allUsers) => {
+      res.status(200).json(allUsers);
+    });
+  };
+
+  // GET TODOS USUARIOS
+  controller.getAllUsersSign = (req, res) => {
+    UsersSignModel.find().then((allUsers) => {
       res.status(200).json(allUsers);
     });
   };
