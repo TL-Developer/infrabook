@@ -16,7 +16,7 @@ module.exports = (app) => {
     .get(controller.getAllUsersSign);
 
   app.route('/feeds')
-    .get(isLoggedIn, controller.getAllFeeds);
+    .get(controller.getAllFeeds);
 
   app.route('/albuns')
     .get(controller.getAllAlbuns);
