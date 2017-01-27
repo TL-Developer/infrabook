@@ -21,6 +21,7 @@
     "angular-resource": "^1.6.1",
     "hover": "Hover#^2.1.0",
     "angular-sanitize": "^1.6.1",
-    "angular-emoji-filter-hd": "^0.0.9"
+    "angular-emoji-filter-hd": "^0.0.9",
+    "angular-dropzone": "^0.1.2"
   }
 }

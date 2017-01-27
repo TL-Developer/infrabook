@@ -22,4 +22,14 @@ angular.module('infrabook').controller('FeedsController', ['$scope','ApiServices
     $state.go('login');
   });
 
+  var dropImageFeed = new Dropzone("#dropzone", { url: "/upload-target"});
+
+  dropImageFeed.on("addedfile", function(file) {
+    console.log(file);
+  });
+
+  // myDropzone.on("complete", function(file) {
+  //   myDropzone.removeFile(file);
+  // });
+
 }]);

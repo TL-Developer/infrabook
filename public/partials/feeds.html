@@ -25,39 +25,44 @@
                 <img src="http://lorempixel.com/70/70" alt="">
               </div>
 
-              <div flex="40">
-                <md-input-container style="width: 100%;">
-                  <label>O que vc está fazendo agora?</label>
-                  <textarea rows="2" style="width: 100%;" ng-model="newffeed"></textarea>
-                </md-input-container>
-              </div>
+              <div flex="80">
+                <form action="">
 
-              <div flex="40">
-                <ul>
-                  <li ng-bind-html="newffeed | emoji"></li>
-                  <li>
-                    <md-tooltip ng-bind-html="message | emoji"></md-tooltip>
-                    <a href="http://www.webpagefx.com/tools/emoji-cheat-sheet/" target="blank">Emoji cheat sheet</a>
-                  </li>
-                </ul>
+                  <md-input-container class="md-icon-float md-block">
+                    <input ng-model="feed.newtitle" type="text" placeholder="Título">
+                  </md-input-container>
+
+                  <md-input-container class="md-icon-float md-block">
+                    <input ng-model="feed.newmessage" type="text" placeholder="Mensagem">
+                  </md-input-container>
+                </form>
               </div>
             </div>
           </md-content>
+
+          <div flex="40">
+            <ul>
+              <li>Preview:</li>
+              <li ng-bind-html="feed.newtitle | emoji"></li>
+              <li ng-bind-html="feed.newmessage | emoji" style="font-weight: bold; font-size: 1.5em;"></li>
+              <li>
+                <md-tooltip ng-bind-html="message | emoji"></md-tooltip>
+                <a href="http://www.webpagefx.com/tools/emoji-cheat-sheet/" target="blank">Emoji cheat sheet</a>
+              </li>
+            </ul>
+          </div>
 
           <section class="external-login" style="width: 100%;">
             <div class="row" style="width: 100%;">
               <ul style="width: 100%; margin: 0; padding: 0;">
                 <li style="float: left; padding: 10px;">
-                  <a href="#" class="hvr-bob">
-                    <fa name="fa fa-picture-o" size="2"></fa>
-                  </a>
+                  <fa name="fa fa-picture-o" size="2"></fa>
                 </li>
+                <form action="/upload-target" class="dropzone" id="dropzone"></form>
 
-                <li style="float: left; padding: 10px;">
-                  <a href="#" class="hvr-bob">
-                    <fa name="fa fa-video-camera" size="2"></fa>
-                  </a>
-                </li>
+               <!--  <li style="float: left; padding: 10px; opacity: 0.5;">
+                  <fa name="fa fa-video-camera" size="2"></fa>
+                </li> -->
               </ul>
             </div>
           </section>
@@ -76,7 +81,7 @@
             </md-card-title-text>
           </md-card-title>
           <md-card-content layout="row" layout-align="space-between">
-            <div class="md-media-xl card-media"><img ng-src="http://lorempixel.com/615/245/" alt=""></div>
+            <div class="md-media-xl card-media"><img src="http://lorempixel.com/615/260/" alt=""></div>
             <md-card-actions layout="column">
               <md-button class="md-icon-button" aria-label="Favorite">
                 <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
@@ -110,7 +115,7 @@
                 <md-subheader class="md-primary">Comentários</md-subheader>
                 <md-list layout-padding>
                   <md-list-item class="md-3-line" ng-repeat="comments in feed.comments">
-                      <img ng-src="http://lorempixel.com/70/70" class="md-avatar" alt="{{message.userCommented}}">
+                      <img src="http://lorempixel.com/70/70" class="md-avatar" alt="{{message.userCommented}}">
                       <div class="md-list-item-text">
                         <h3 class="userCommented">{{comments.userCommented}}</h3>
                         <h4>{{comments.message}}</h4>
@@ -142,3 +147,4 @@
   </div>
 
 </div>
+

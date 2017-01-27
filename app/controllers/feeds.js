@@ -108,6 +108,11 @@ module.exports = (app) => {
     });
   };
 
+  // SALVANDO FEEDS
+  controller.saveFeed = (req, res) => {
+    console.log('post')
+  };
+
   // GET TODOS ALBUNS DE UM USUARIO
   controller.getAllAlbuns = (req, res) => {
     AlbunsModel.findOne().then((allAlbuns) => {
